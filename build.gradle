@@ -13,10 +13,25 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation group: 'org.testng', name: 'testng', version: '7.7.0'
-    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.5.3'
-    implementation 'io.github.bonigarcia:webdrivermanager:5.1.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.21.0'
+    //implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.5.3'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.8.0'
+
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+task checkAdWebApp(type: Test) {
+    useTestNG() {
+        useDefaultListeners = true
+        scanForTestClasses = false
+        testLogging.showStandardStreams = true
+        systemProperties project.properties.subMap(["Type"])
+        String testValue = System.getProperty("Type");
+        System.out.println(testValue)
+
+        suites "src/test/resources/suite/adWebAppSuite.xml"
+    }
 }

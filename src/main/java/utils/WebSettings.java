@@ -1,5 +1,6 @@
-package core;
+package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -7,16 +8,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.util.HashMap;
 import java.util.Map;
 
+import static utils.ConstantHelper.*;
+
 public class WebSettings {
-    WebDriver driver;
 
-    public static String BASE_URL = "https://staging.a-d.com.au/new-apartments-developments/nsw/castle-hill-2154/grand-reve";
-
-    public WebDriver appUpAndRun(){
+    public WebDriver upAndRunWebApp(){
         ChromeOptions options = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<String, Object>();
         Map<String, Object> profile = new HashMap<String, Object>();
         Map<String, Integer> contentSettings = new HashMap<String, Integer>();
+
         // SET CHROME OPTIONS
         // 0 - Default, 1 - Allow, 2 - Block
         contentSettings.put("notifications", 2);
@@ -25,18 +26,16 @@ public class WebSettings {
         prefs.put("profile", profile);
         options.setExperimentalOption("prefs", prefs);
         options.addArguments("--remote-allow-origins=*");
+        //options.addArguments("--headless");
+
         WebDriverManager.chromedriver().setup();
-
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-
         driver = new ChromeDriver(options);
-        driver.get(BASE_URL);
+        driver.get(ENQUIRE_URL);
 
-        System.out.println("Browser successfully up and run with "+BASE_URL);
+        System.out.println("Browser successfully up and run with "+ENQUIRE_URL);
         driver.manage().window().maximize();
 
         return driver;
+
     }
 }
