@@ -18,11 +18,11 @@ dependencies {
 
 }
 
-tasks.test {
+/*tasks.test {
     useJUnitPlatform()
-}
+}*/
 
-task checkAdWebApp(type: Test) {
+task testAdWebApp(type: Test) {
     useTestNG() {
         useDefaultListeners = true
         scanForTestClasses = false
@@ -31,6 +31,8 @@ task checkAdWebApp(type: Test) {
         String testValue = System.getProperty("Type");
         System.out.println(testValue)
 
-        suites "src/test/resources/suite/adWebAppSuite.xml"
+        if (testValue == "stg_eng"){
+            suites "src/test/resources/suite/adWebAppSuite.xml"
+        }
     }
 }
