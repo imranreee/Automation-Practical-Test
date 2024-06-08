@@ -30,9 +30,9 @@ public class WebSettings {
 
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
-        driver.get(ENQUIRE_URL);
+        driver.get(URL_GRAND_REVE);
 
-        System.out.println("Browser successfully up and run with "+ENQUIRE_URL);
+        System.out.println("Browser successfully up and run with "+URL_GRAND_REVE);
         driver.manage().window().maximize();
 
         return driver;
