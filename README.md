@@ -1,4 +1,4 @@
-# Web application automation project
+# Web Application Automation Test Project
 * Language: `Jave`
 * Build Tool: `gradle`
 * Design Pattern: `Page Object Model(POM)`
