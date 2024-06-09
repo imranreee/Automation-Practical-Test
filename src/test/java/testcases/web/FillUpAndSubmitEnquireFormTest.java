@@ -18,8 +18,8 @@ public class FillUpAndSubmitEnquireFormTest{
         driver = webSettings.upAndRunWebApp();
     }
 
-    @Test(priority = 1, invocationCount = 2, groups = {"regression"})
-    public void fromFillUpAndSubmitTest() throws Exception {
+    @Test(priority = 1, invocationCount = 20, groups = {"regression"})
+    public void fillUpAndSubmitEnquireFromTest() throws Exception {
         itrCount += 1;
         grandRevePage = new GrandRevePage(driver);
         grandRevePage.checkAvailabilityEnquireForm();
@@ -52,6 +52,6 @@ public class FillUpAndSubmitEnquireFormTest{
 
     @AfterTest(groups = {"smoke", "regression"})
     public void endTest(){
-        //driver.quit();
+        driver.quit();
     }
 }

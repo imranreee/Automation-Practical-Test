@@ -36,8 +36,10 @@ public class GrandRevePage extends HelperClass{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-    public void checkAvailabilityEnquireForm(){
+    public void checkAvailabilityEnquireForm() throws InterruptedException {
+        scrollToElement(btnEnquireNow);
         waitForClickAbilityOf(btnEnquireNow);
+        Thread.sleep(1000);
         driver.findElement(btnEnquireNow).click();
         boolean isFoundFrom = driver.findElement(formEnquire).isDisplayed();
         Assert.assertTrue(isFoundFrom);
@@ -129,12 +131,15 @@ public class GrandRevePage extends HelperClass{
     public void clickSubmitBtn(){
         waitForClickAbilityOf(btnSubmitEnquiry);
         driver.findElement(btnSubmitEnquiry).click();
+        boolean isShownCloseBtn = driver.findElement(btnClose).isDisplayed();
+        Assert.assertTrue(isShownCloseBtn);
     }
 
-    public void clickCloseBtn(){
+    public void clickCloseBtn() throws InterruptedException {
         waitForClickAbilityOf(btnClose);
         driver.findElement(btnClose).click();
-        waitForClickAbilityOf(btnEnquireNow);
+        boolean isShownEnqBtn = driver.findElement(btnEnquireNow).isDisplayed();
+        Assert.assertTrue(isShownEnqBtn);
     }
 
 }
