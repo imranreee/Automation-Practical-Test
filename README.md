@@ -9,3 +9,7 @@
 * `Page factory`, and  `Data Driven`
 * Reporting System: [Extend Report](http://extentreports.com/), and [Allue Report](http://allure.qatools.ru/)
 * Send report to Email, CI/CD
+
+* Successful run for 20 iteration with single run!
+[Extend Report](https://youtu.be/aNDD7ZhPK24)
+
