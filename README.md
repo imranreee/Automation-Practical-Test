@@ -11,5 +11,5 @@
 * Send report to Email, CI/CD
 
 * Successful run for 20 iteration with single run!
-[Extend Report](https://youtu.be/aNDD7ZhPK24)
+  [Video](https://youtu.be/aNDD7ZhPK24)
 
